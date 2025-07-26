@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>页面未找到 - 快点FRP</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #fff;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(25, 25, 35, 0.85);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .header {
+            background: rgba(15, 15, 25, 0.95);
+            padding: 25px 40px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .logo-icon {
+            font-size: 2.8rem;
+            color: #4a9eff;
+        }
+        
+        .logo-text {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #4a9eff, #6c5ce7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .domain {
+            font-size: 1.3rem;
+            color: #a0a0d0;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+        
+        .main-content {
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .error-code {
+            font-size: 8rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #ff7675, #fdcb6e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            text-shadow: 0 5px 15px rgba(253, 203, 110, 0.3);
+        }
+        
+        .error-title {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        
+        .error-description {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            color: #d0d0e7;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .notice {
+            background: rgba(255, 193, 7, 0.15);
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+            text-align: left;
+        }
+        
+        .notice-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #ffc107;
+        }
+        
+        .notice-content {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #ffeaa7;
+        }
+        
+        .notice-highlight {
+            color: #ffc107;
+            font-weight: 600;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0 30px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            padding: 25px;
+            width: 220px;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-10px);
+            background: rgba(74, 158, 255, 0.15);
+        }
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #4a9eff;
+        }
+        
+        .contact-title {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+        
+        .contact-detail {
+            font-size: 1rem;
+            color: #a0a0d0;
+            word-break: break-all;
+        }
+        
+        .frp-info {
+            margin-top: 30px;
+            color: #a0a0d0;
+            font-size: 1.05rem;
+        }
+        
+        .frp-link {
+            color: #4a9eff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .frp-link:hover {
+            text-decoration: underline;
+        }
+        
+        .footer {
+            background: rgba(15, 15, 25, 0.95);
+            padding: 25px;
+            text-align: center;
+            color: #a0a0d0;
+            font-size: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer a {
+            color: #4a9eff;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .header, .main-content {
+                padding: 25px 20px;
+            }
+            
+            .error-code {
+                font-size: 6rem;
+            }
+            
+            .error-title {
+                font-size: 1.8rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+        }
+        
+        .pulse {
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <i class="fas fa-bolt logo-icon"></i>
+                <div class="logo-text">快点FRP</div>
+            </div>
+            <div class="domain">6888866.xyz</div>
+        </div>
+        
+        <div class="main-content">
+            <div class="error-code">404</div>
+            <h1 class="error-title">您访问的页面不存在</h1>
+            <p class="error-description">
+                很抱歉，您请求的页面暂时不可用或已被移除。<br>
+                请检查URL是否正确，或稍后再试。
+            </p>
+            
+            <div class="notice">
+                <div class="notice-title">
+                    <i class="fas fa-bullhorn"></i>
+                    <span>重要公告</span>
+                </div>
+                <p class="notice-content">
+                    <span class="pulse">内网穿透服务已于2025.07.26 21:55停止公开使用</span>。<br>
+                    后续如需继续使用，请联系：<span class="notice-highlight">admin@huangetech.com</span>
+                </p>
+            </div>
+            
+            <div class="contact-info">
+                <div class="contact-card">
+                    <i class="fas fa-envelope contact-icon"></i>
+                    <div class="contact-title">电子邮件</div>
+                    <div class="contact-detail">admin@huangetech.com</div>
+                </div>
+                
+                <div class="contact-card">
+                    <i class="fas fa-globe contact-icon"></i>
+                    <div class="contact-title">官方网站</div>
+                    <div class="contact-detail">6888866.xyz</div>
+                </div>
+            </div>
+            
+            <div class="frp-info">
+                <p>本服务器由 <a href="https://github.com/fatedier/frp" class="frp-link" target="_blank">FRP</a> 提供技术支持</p>
+                <p><em>Faithfully yours, frp.</em></p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2025 快点FRP | 提供专业内网穿透服务</p>
+            <p>遇到问题？请通过 admin@huangetech.com 联系我们</p>
+        </div>
+    </div>
+    
+    <script>
+        // 添加简单的动画效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.contact-card');
+            cards.forEach((card, index) => {
+                card.style.transitionDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
+</html>
